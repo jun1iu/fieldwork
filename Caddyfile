@@ -1,5 +1,21 @@
 :8080 {
 	root * /srv/fieldwork
 	encode zstd gzip
+
+	header {
+		# The site has no inline scripts or styles, so a strict policy costs nothing.
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		-Server
+	}
+
+	# Files are not fingerprinted, so keep asset caching short; HTML must always revalidate.
+	@assets path *.css *.js *.svg
+	header @assets Cache-Control "public, max-age=300"
+	@pages not path *.css *.js *.svg
+	header @pages Cache-Control "no-cache"
+
 	file_server
 }
