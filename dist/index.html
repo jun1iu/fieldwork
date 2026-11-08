@@ -1,27 +1,84 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Fieldwork Supply, a fictional outdoor goods storefront and portfolio demo.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fieldwork Supply — Equipment for getting out</title>
-<link rel="stylesheet" href="style.css"><script defer src="shop.js"></script>
+<meta name="description" content="Fieldwork Supply, a fictional outdoor goods storefront and portfolio demo.">
+<meta name="theme-color" content="#20392d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fieldwork Supply — Equipment for getting out">
+<meta property="og:description" content="A fictional outdoor goods storefront and portfolio demo.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="js/main.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#shop">Skip to the shop</a>
 <div class="notice">FIELDWORK SUPPLY &nbsp; / &nbsp; A FICTIONAL STOREFRONT</div>
-<header class="top"><a class="wordmark" href="#">Fieldwork<span>.</span></a><nav aria-label="Main"><a href="#shop">Shop</a><a href="#story">Our story</a></nav><button id="bag" class="bag" type="button">Bag <span id="count">0</span></button></header>
+<header class="top">
+  <a class="wordmark" href="./" aria-label="Fieldwork, home">Fieldwork<span>.</span></a>
+  <nav aria-label="Main"><a href="#shop">Shop</a><a href="#story">Our story</a></nav>
+  <button id="bag" class="bag" type="button" data-action="open-bag" aria-label="Open bag, 0 items">Bag <span id="count" aria-hidden="true">0</span></button>
+</header>
 <main>
-<section class="hero">
-<div class="hero-copy"><p class="eyebrow"><i></i> THE TRAIL COLLECTION / 01</p><h1>Better<br>outside<span>.</span></h1><p>Thoughtfully designed gear for slow mornings, long trails, and weekends out of range.</p><a class="primary" href="#shop">Explore the collection <span aria-hidden="true">↗</span></a></div>
-<div class="hero-art"><img src="landscape.svg" alt="Illustrated mountain range and pine forest at sunset"><span class="image-label">FIG. 01 &nbsp; / &nbsp; ABOVE THE TREELINE</span></div>
-</section>
-<section id="shop" class="shop"><div class="shop-heading"><div><p class="eyebrow">01 / THE SHOP</p><h2>Trail essentials</h2></div><p>Pack light. Make it count.</p></div>
-<div class="controls"><div id="filters" role="group" aria-label="Filter products"></div><label>Sort by <select id="sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></label></div>
-<p class="sr-only" id="results" aria-live="polite"></p><div id="products" class="grid"></div></section>
-<section class="story" id="story"><p class="eyebrow">02 / THE FIELD NOTES</p><h2>Good gear leaves room for the good stuff.</h2><p>Fieldwork is an imagined gear shop built around a simple packing list. Six essentials, each with a clear job, for getting out the door and into the day.</p><a href="#shop">Back to the collection ↑</a></section>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><i></i> THE TRAIL COLLECTION / 01</p>
+      <h1 id="hero-title">Better<br>outside<span>.</span></h1>
+      <p>Thoughtfully designed gear for slow mornings, long trails, and weekends out of range.</p>
+      <a class="primary" href="#shop">Explore the collection <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="hero-art">
+      <img src="landscape.svg" alt="Illustrated mountain range and pine forest at sunset" width="900" height="690" fetchpriority="high">
+      <span class="image-label" aria-hidden="true">FIG. 01 &nbsp; / &nbsp; ABOVE THE TREELINE</span>
+    </div>
+  </section>
+
+  <section id="shop" class="shop" aria-labelledby="shop-title">
+    <div class="shop-heading">
+      <div><p class="eyebrow">01 / THE SHOP</p><h2 id="shop-title">Trail essentials</h2></div>
+      <p>Pack light. Make it count.</p>
+    </div>
+    <div class="controls">
+      <div id="filters" role="group" aria-label="Filter products"></div>
+      <label>Sort by <select id="sort" name="sort"></select></label>
+    </div>
+    <p class="sr-only" id="results" aria-live="polite"></p>
+    <div id="products" class="grid"></div>
+    <noscript><p class="notice-js">The shop needs JavaScript to list products and keep your bag. Please enable it and reload.</p></noscript>
+  </section>
+
+  <section class="story" id="story" aria-labelledby="story-title">
+    <p class="eyebrow">02 / THE FIELD NOTES</p>
+    <h2 id="story-title">Good gear leaves room for the good stuff.</h2>
+    <p>Fieldwork is an imagined gear shop built around a simple packing list. Six essentials, each with a clear job, for getting out the door and into the day.</p>
+    <a href="#shop">Back to the collection ↑</a>
+  </section>
 </main>
-<footer><a class="wordmark" href="#">Fieldwork<span>.</span></a><p>Fictional brand. Portfolio demo.</p><a href="#shop">Shop the collection ↑</a></footer>
-<dialog id="product-dialog" aria-labelledby="product-title"><div class="dialog-head"><p class="eyebrow">FIELDWORK / EQUIPMENT</p><form method="dialog"><button class="close" aria-label="Close product details">×</button></form></div><div id="product-detail"></div></dialog>
-<dialog id="cart" aria-labelledby="cart-title"><div class="dialog-head"><h2 id="cart-title">Your bag</h2><form method="dialog"><button class="close" aria-label="Close bag">×</button></form></div><div id="cart-items"></div><div id="cart-summary" hidden><p class="subtotal"><strong>Subtotal</strong><strong id="subtotal"></strong></p><button class="primary" id="checkout">Place demo order <span aria-hidden="true">↗</span></button><p class="fine">Demo checkout. No payment or shipping details required.</p></div><p id="order" role="status" hidden></p></dialog>
+<footer>
+  <a class="wordmark" href="./" aria-label="Fieldwork, home">Fieldwork<span>.</span></a>
+  <p>Fictional brand. Portfolio demo.</p>
+  <a href="#shop">Shop the collection ↑</a>
+</footer>
+
+<dialog id="product-dialog">
+  <div class="dialog-head"><p class="eyebrow">FIELDWORK / EQUIPMENT</p><form method="dialog"><button class="close" aria-label="Close product details">×</button></form></div>
+  <div id="product-detail"></div>
+</dialog>
+
+<dialog id="cart" aria-labelledby="cart-title">
+  <div class="dialog-head"><h2 id="cart-title">Your bag</h2><form method="dialog"><button class="close" aria-label="Close bag">×</button></form></div>
+  <div id="cart-items"></div>
+  <div id="cart-summary" hidden>
+    <p class="subtotal"><strong>Subtotal</strong><strong id="subtotal"></strong></p>
+    <button class="primary" id="checkout" type="button" data-action="checkout">Place demo order <span aria-hidden="true">↗</span></button>
+    <p class="fine">Demo checkout. No payment or shipping details required.</p>
+  </div>
+  <p id="order" role="status" tabindex="-1" hidden></p>
+  <p class="sr-only" id="cart-status" role="status"></p>
+</dialog>
+
 <div id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
