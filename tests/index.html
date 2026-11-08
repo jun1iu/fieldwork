@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fieldwork tests</title>
+<style>
+  body { font: 14px/1.6 ui-monospace, Menlo, monospace; margin: 2rem; color: #1d2924; background: #f7f5ed; }
+  #summary { font-size: 1.25rem; font-weight: 700; margin: 1rem 0; }
+  li { list-style: none; } li.pass::before { content: "ok    "; color: #1a7f37; }
+  li.fail { color: #cf222e; font-weight: 700; } li.fail::before { content: "FAIL  "; }
+  iframe { position: fixed; right: 0; bottom: 0; width: 1200px; height: 900px; border: 0; opacity: 0; pointer-events: none; }
+</style>
+</head>
+<body>
+<h1>Fieldwork tests</h1>
+<p id="summary">Running…</p>
+<ul id="log"></ul>
+<script type="module" src="run.js"></script>
+</body>
+</html>
